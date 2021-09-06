@@ -13,9 +13,12 @@ func main() {
 	// the time, source file, and line number.
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
+
+	// a slice of names
+	names := []string{"Gladys", "Samantha", "Darrin"}
 	
 	// Request a greeting message
-	message, err := greetings.Hello("Gladys")
+	messages, err := greetings.Hellos(names)
 	// if an error was returned, print it to the console and
 	// exit the program
 	if err != nil {
@@ -24,5 +27,7 @@ func main() {
 
 	// if no error was returned, preint the returned message
 	// to the console.
-	fmt.Println(message)
+	for _, message := range messages {
+		fmt.Println(message)
+	}
 }
